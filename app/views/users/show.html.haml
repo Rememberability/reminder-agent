@@ -1,12 +1,7 @@
-%h2= "#{@user.firstname} #{@user.lastname}"
-
-%p= "Contact email: #{@user.email}"
-
 %p= link_to "Edit", edit_user_path(@user)
 
 %p= link_to "New item to remember", new_item_path
 
-%p= link_to "Sign out", destroy_user_session_path, method: :delete
 
 %h3 Items for remembering.
 %table
