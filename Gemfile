@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "cancan"
 gem "aasm"
 gem "torquebox", "3.0.2"
 gem "torquebox-server"
