@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_filter :find_item, only: [:show, :remembered, :forgot]
+  before_filter :find_item, only: [:show, :remember, :forget, :edit]
 
   def index
     @items = Item.all
@@ -34,16 +34,14 @@ class ItemsController < ApplicationController
     end
   end
 
-  def remembered
-    @item.remembered
-    @item.save
-    redirect_to :back
+  def remember
+    @item.remember
+    redirect_to current_user
   end
 
-  def forgot
-    @item.forgot
-    @item.save
-    redirect_to :back
+  def forget
+    @item.forget
+    redirect_to current_user
   end
 
   private

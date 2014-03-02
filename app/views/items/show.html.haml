@@ -5,3 +5,6 @@
 %p= @item.answer
 
 %p= link_to "Back to user", @item.user
+
+%p= link_to "I remembered this", remember_item_path(@item), method: :post
+%p= link_to "I forgot this", forget_item_path(@item), method: :post

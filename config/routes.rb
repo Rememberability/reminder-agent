@@ -3,5 +3,10 @@ ReminderAgent::Application.routes.draw do
   root to: "home#index"
 
   resources :users
-  resources :items
+  resources :items do
+    member do
+      post "remember"
+      post "forget"
+    end
+  end
 end

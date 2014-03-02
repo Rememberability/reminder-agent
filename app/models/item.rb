@@ -36,5 +36,6 @@ class Item < ActiveRecord::Base
   def set_reminder
     self.reminder_date = Time.now +
       self.class::REMINDER_INTERVAL_IN_DAYS[self.aasm.current_state].days
+    save
   end
 end
