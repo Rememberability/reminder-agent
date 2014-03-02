@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140301182838) do
   create_table "users", force: true do |t|
     t.string   "firstname"
     t.string   "lastname"
+    t.date     "last_reminded"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false

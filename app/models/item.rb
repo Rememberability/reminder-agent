@@ -9,7 +9,7 @@ class Item < ActiveRecord::Base
     thirty_five: 35
   }
 
-  before_create :set_reminder
+  before_create :initial_reminder
 
   aasm do
     state :one, initial: true
@@ -33,6 +33,10 @@ class Item < ActiveRecord::Base
   end
 
   private
+  def initial_reminder
+    self.reminder_date = Time.now + 1.day
+  end
+
   def set_reminder
     self.reminder_date = Time.now +
       self.class::REMINDER_INTERVAL_IN_DAYS[self.aasm.current_state].days
