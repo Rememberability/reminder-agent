@@ -1,0 +1,6 @@
+%h2 List of all Items
+
+%table
+  - @items.each do |item|
+    %tr
+      %td= link_to item.question, item
