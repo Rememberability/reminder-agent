@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "bootstrap-sass"
 gem "cancan"
 gem "aasm"
 gem "torquebox", "3.0.2"

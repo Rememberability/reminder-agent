@@ -10,11 +10,11 @@
 
 %h3 Items for remembering.
 %table
-  %thead
-    %td Question
-    %td Next date to remind
+  %thead.row
+    %td.col-xs-3 Question
+    %td.col-xs-3 Next date to remind
   %tbody
     - @items.each do |item|
-      %tr
-        %td= link_to item.question, item
-        %td= item.reminder_date
+      %tr.row
+        %td.col-xs-3= link_to item.question, item
+        %td.col-xs-3= item.reminder_date

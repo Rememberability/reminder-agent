@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_filter :find_item, only: [:show, :remember, :forget, :edit]
+  authorize_resource
 
   def index
     @items = Item.all
@@ -13,7 +14,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(whitelisted_params)
     @item.user = current_user
-    authorize! :create, @item
     if @item.save
       flash[:now] = "Saved a new item to remember."
       redirect_to [@user, @item]
@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.new(whitelisted_params)
-    authorize! :edit, @item
     if @item.save
       redirect_to @item
     else
@@ -38,13 +37,11 @@ class ItemsController < ApplicationController
   end
 
   def remember
-    authorize! :remember, @item
     @item.remember
     redirect_to current_user
   end
 
   def forget
-    authorize! :forget, @item
     @item.forget
     redirect_to current_user
   end
