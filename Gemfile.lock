@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/zlx/simple_form_bootstrap3.git
+  revision: 8fe2e4ef642296061a8a42e432685c896203af22
+  specs:
+    simple_form (3.0.0.rc)
+      actionpack (>= 4.0.0, < 4.1)
+      activemodel (>= 4.0.0, < 4.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,9 +39,16 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    angular-rails (0.0.12)
+      coffee-script (~> 2.2.0)
+      rails
+    angular-ui-bootstrap-rails (0.10.0)
     arel (4.0.2)
     atomic (1.1.15)
     atomic (1.1.15-java)
+    axiom-types (0.0.5)
+      descendants_tracker (~> 0.0.1)
+      ice_nine (~> 0.9)
     bcrypt (3.1.7)
     bcrypt (3.1.7-java)
     bcrypt-ruby (3.1.5)
@@ -46,6 +61,8 @@ GEM
     builder (3.1.4)
     cancan (1.6.10)
     coderay (1.1.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -53,6 +70,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    descendants_tracker (0.0.3)
     devise (3.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -62,9 +80,20 @@ GEM
     diff-lcs (1.2.5)
     edn (1.0.0)
       parslet (~> 1.4.0)
+    equalizer (0.0.9)
     erubis (2.7.0)
     execjs (2.0.2)
     ffi (1.9.3-java)
+    grape (0.6.1)
+      activesupport
+      builder
+      hashie (>= 1.2.0)
+      multi_json (>= 1.3.2)
+      multi_xml (>= 0.5.2)
+      rack (>= 1.3.0)
+      rack-accept
+      rack-mount
+      virtus (>= 1.0.0)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -72,8 +101,10 @@ GEM
       activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
+    hashie (2.0.5)
     hike (1.2.3)
     i18n (0.6.9)
+    ice_nine (0.11.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -90,6 +121,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.4)
+    multi_xml (0.5.5)
     orm_adapter (0.5.0)
     parslet (1.4.0)
       blankslate (~> 2.0)
@@ -105,7 +137,13 @@ GEM
       spoon (~> 0.0)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.3)
@@ -144,9 +182,6 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
-    simple_form (3.0.1)
-      actionpack (>= 4.0.0, < 4.1)
-      activemodel (>= 4.0.0, < 4.1)
     slop (3.4.7)
     spoon (0.0.4)
       ffi
@@ -208,12 +243,15 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.1)
-      coffee-rails
     tzinfo (0.3.38)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    virtus (1.0.1)
+      axiom-types (~> 0.0.5)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0.1)
+      equalizer (~> 0.0.7)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -223,22 +261,24 @@ PLATFORMS
 DEPENDENCIES
   aasm
   activerecord-jdbcpostgresql-adapter
+  angular-rails
+  angular-ui-bootstrap-rails
   bootstrap-sass
-  cancan
   coffee-rails (~> 4.0.0)
   devise
+  grape
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
   pry-rails
+  quiet_assets
   rails (= 4.0.3)
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
-  simple_form
+  simple_form!
   state_machine
   therubyrhino
   torquebox (= 3.0.2)
   torquebox-server
-  turbolinks
   uglifier (>= 1.3.0)
