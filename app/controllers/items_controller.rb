@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   before_filter :find_item, only: [:show, :remember, :forget, :edit]
-  authorize_resource
 
   def index
     @items = Item.all
