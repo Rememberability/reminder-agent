@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  background: url(binding_dark.png) repeat;
+}
+
+.well {
+  background-color: rgba(255,255,255,0.8) !important;
+}

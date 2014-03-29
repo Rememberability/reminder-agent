@@ -19,6 +19,14 @@ class ItemsAPI < Grape::API
       Item.find(params[:id]).delete
     end
 
+    post ':id/remember' do
+      Item.find(params[:id]).remember
+    end
+
+    post ':id/forget' do
+      Item.find(params[:id]).forget
+    end
+
     desc "Create a Item."
     params do
       requires :question, type: String

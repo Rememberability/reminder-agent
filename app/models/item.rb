@@ -18,16 +18,16 @@ class Item < ActiveRecord::Base
     state :thirty_five
 
     event :remember, after: :set_reminder do
-      transitions from: :one, to: :seven, after_event: :set_reminder
-      transitions from: :seven, to: :sixteen
-      transitions from: :sixteen, to: :thirty_five
-      transitions from: :thirty_five, to: :thirty_five
+      transitions from: :one,          to: :seven
+      transitions from: :seven,        to: :sixteen
+      transitions from: :sixteen,      to: :thirty_five
+      transitions from: :thirty_five,  to: :thirty_five
     end
 
     event :forget, after: :set_reminder do
-      transitions from: :one, to: :one
-      transitions from: :seven, to: :one
-      transitions from: :sixteen, to: :one
+      transitions from: :one,         to: :one
+      transitions from: :seven,       to: :one
+      transitions from: :sixteen,     to: :one
       transitions from: :thirty_five, to: :one
     end
   end

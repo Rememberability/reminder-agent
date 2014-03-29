@@ -21,7 +21,7 @@ gem "bootstrap-sass"
 
 gem "jquery-rails"
 gem "coffee-rails", "~> 4.0.0"
-gem "angular-rails"
+gem "angularjs-rails", git: "git@github.com:hiravgandhi/angularjs-rails.git"
 gem "angular-ui-bootstrap-rails"
 
 gem "uglifier", ">= 1.3.0"
