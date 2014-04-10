@@ -11,7 +11,7 @@
             %button.btn{type: "submit"} Submit
 
     .col-md-6.col-md-offset-1
-      .well{"ng-repeat" => "item in items"}
+      .well{"ng-repeat" => "item in items", "ng-class" => "{red: need_reminding(item)}"}
         %h3 {{ item.question }}
         %p {{ item.answer }}
         %p {{ item.reminder_date }}

@@ -19,6 +19,7 @@ app.controller('ItemCtrl', function ($scope, Item, $filter) {
     Item.save({question: question, answer: answer}, function(item) {
       $scope.items.push(item);
       $scope.data = {};
+      $scope.items = $filter('orderBy')($scope.items, 'reminder_date');
     });
   };
 
@@ -40,5 +41,13 @@ app.controller('ItemCtrl', function ($scope, Item, $filter) {
       $scope.items[index].reminder_date = item.reminder_date;
       $scope.items = $filter('orderBy')($scope.items, 'reminder_date');
     });
+  };
+
+  $scope.need_reminding = function(item) {
+    if ((Date.parse(item.reminder_date) + 86400000) < Date.now()) {
+      return true;
+    } else {
+      return false;
+    }
   };
 });
