@@ -19,12 +19,16 @@ class ItemsAPI < Grape::API
       Item.find(params[:id]).delete
     end
 
-    post ':id/remember' do
-      Item.find(params[:id]).remember
+    put ':id/remember' do
+      item = Item.find(params[:id]);
+      item.remember;
+      item;
     end
 
-    post ':id/forget' do
-      Item.find(params[:id]).forget
+    put ':id/forget' do
+      item = Item.find(params[:id]);
+      item.forget;
+      item;
     end
 
     desc "Create a Item."

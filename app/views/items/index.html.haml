@@ -14,7 +14,7 @@
       .well{"ng-repeat" => "item in items"}
         %h3 {{ item.question }}
         %p {{ item.answer }}
+        %p {{ item.reminder_date }}
         .btn.btn-success{href: "", "ng-click" => "remember($index)", title: "Remember"} Remember
         .btn.btn-warning{href: "", "ng-click" => "forget($index)", title: "Forget"} Forget
         .btn.btn-danger.pull-right{href: "", "ng-click" => "delete($index)", title: "Delete"} Delete
-
