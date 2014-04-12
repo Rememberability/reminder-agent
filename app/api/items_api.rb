@@ -20,15 +20,15 @@ class ItemsAPI < Grape::API
     end
 
     put ':id/remember' do
-      item = Item.find(params[:id]);
-      item.remember;
-      item;
+      item = Item.find(params[:id])
+      item.remember
+      item
     end
 
     put ':id/forget' do
-      item = Item.find(params[:id]);
-      item.forget;
-      item;
+      item = Item.find(params[:id])
+      item.forget
+      item
     end
 
     desc "Create a Item."
