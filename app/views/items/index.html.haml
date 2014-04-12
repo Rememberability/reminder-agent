@@ -11,10 +11,10 @@
             %button.btn{type: "submit"} Submit
 
     .col-md-6.col-md-offset-1
-      .well{"ng-repeat" => "item in items"}
+      .well{"ng-repeat" => "item in items", "ng-class" => "{red: need_reminding(item)}"}
         %h3 {{ item.question }}
         %p {{ item.answer }}
+        %p {{ item.reminder_date }}
         .btn.btn-success{href: "", "ng-click" => "remember($index)", title: "Remember"} Remember
         .btn.btn-warning{href: "", "ng-click" => "forget($index)", title: "Forget"} Forget
         .btn.btn-danger.pull-right{href: "", "ng-click" => "delete($index)", title: "Delete"} Delete
-
