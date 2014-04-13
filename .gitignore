@@ -1,4 +1,4 @@
 tmp/
 *.log
 .sass-cache/
-
+public/
