@@ -1,15 +1,15 @@
 var app = angular.module('app', ['ngResource', 'ui.bootstrap']);
 
-app.factory("Item", function($resource) {
+app.factory("Item", [ "$resource", function($resource) {
   return $resource("/api/v1/items/:id", {id: "@id"},
    {
      "remember": {method: "PUT", url: "/api/v1/items/:id/remember", params: { id: "@id"} },
      "forget": {method: "PUT", url: "/api/v1/items/:id/forget", params: { id: "@id"} }
    }
   );
-});
+}]);
 
-app.controller('ItemCtrl', function ($scope, Item, $filter) {
+app.controller('ItemCtrl', ["$scope", "Item", "$filter", function ($scope, Item, $filter) {
 
   $scope.data = { "question": "", "answer": ""};
 
@@ -50,4 +50,4 @@ app.controller('ItemCtrl', function ($scope, Item, $filter) {
       return false;
     }
   };
-});
+}]);
