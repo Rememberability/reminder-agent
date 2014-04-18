@@ -7,8 +7,8 @@ ReminderAgent::Application.routes.draw do
   resources :users
   resources :items do
     member do
-      post "remember"
-      post "forget"
+      put "remember"
+      put "forget"
     end
   end
 end

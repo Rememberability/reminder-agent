@@ -1,15 +1,20 @@
 var app = angular.module('app', ['ngResource', 'ui.bootstrap']);
 
+app.config(function($httpProvider) {
+  var authToken = $("meta[name='csrf-token']").attr("content");
+  return $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken;
+});
+
 app.factory("Item", [ "$resource", function($resource) {
-  return $resource("/api/v1/items/:id", {id: "@id"},
-   {
-     "remember": {method: "PUT", url: "/api/v1/items/:id/remember", params: { id: "@id"} },
-     "forget": {method: "PUT", url: "/api/v1/items/:id/forget", params: { id: "@id"} }
+  return $resource("/items/:id", {id: "@id"},
+		   {
+     "remember": {method: "PUT", url: "/items/:id/remember", params: { id: "@id"} },
+     "forget": {method: "PUT", url: "/items/:id/forget.json", params: { id: "@id"} }
    }
   );
 }]);
 
-app.controller('ItemCtrl', ["$scope", "Item", "$filter", function ($scope, Item, $filter) {
+app.controller('UserCtrl', ["$scope", "Item", "$filter", function ($scope, Item, $filter) {
 
   $scope.data = { "question": "", "answer": ""};
 

@@ -6,7 +6,7 @@ gem "activerecord-jdbcpostgresql-adapter"
 gem "therubyrhino"
 gem "torquebox", "3.0.2"
 gem "torquebox-server"
-
+gem "active_model_serializers"
 gem "aasm"
 gem "devise"
 gem "simple_form", github: "zlx/simple_form_bootstrap3"

@@ -1,48 +1,43 @@
 class ItemsController < ApplicationController
-  before_filter :find_item, only: [:show, :remember, :forget, :edit]
+  before_filter :find_item, only: [:show, :remember, :forget, :edit, :destroy]
 
   def index
-    @items = Item.all
-  end
-
-  def new
-    authorize! :new, Item
-    @item = Item.new
+    @items = current_user.items.order
+    render json:  @items
   end
 
   def create
     @item = Item.new(whitelisted_params)
     @item.user = current_user
     if @item.save
-      flash[:now] = "Saved a new item to remember."
-      redirect_to [@user, @item]
+      render json: @item, status: 200
     else
-      flash[:alert] = "Sorry, incorrect input.  Lets try again."
-      render :new
+      render json: {}, status: 422
     end
   end
 
   def show
   end
 
-  def edit
-    @item = Item.new(whitelisted_params)
-    if @item.save
-      redirect_to @item
-    else
-      flash[:alert] = "Sorry, incorrect input.  Lets try again."
-      render :new
-    end
-  end
-
   def remember
     @item.remember
-    redirect_to current_user
+    render json: @item, status: 200
   end
 
   def forget
     @item.forget
-    redirect_to current_user
+    render json: @item, status: 200
+  end
+
+  def destroy
+    @item.destroy
+    render json: {}, status: :ok
+  end
+
+  def default_serializer_options
+    {
+      root: false
+    }
   end
 
   private

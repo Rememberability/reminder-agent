@@ -2,6 +2,8 @@ class Item < ActiveRecord::Base
   include AASM
   belongs_to :user
 
+  default_scope order(:reminder_date)
+
   REMINDER_INTERVAL_IN_DAYS = {
     one: 1,
     seven: 7,

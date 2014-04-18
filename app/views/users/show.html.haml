@@ -1,15 +1,20 @@
-%p= link_to "Edit", edit_user_path(@user)
+%div{"ng-controller" => "UserCtrl"}
+  .row
+    .col-md-4
+      .well{"ng-submit" => "create(data.question, data.answer)"}
+        %form
+          .form-group
+            %input.form-control{"ng-model" => "data.question", placeholder: "Question...", required: "", type: "text"}
+          .form-group
+            %textarea.form-control{"ng-model" => "data.answer", placeholder: "Answer...", required: "", type: "text"}
+          .form-group
+            %button.btn{type: "submit"} Submit
 
-%p= link_to "New item to remember", new_item_path
-
-
-%h3 Items for remembering.
-%table
-  %thead.row
-    %td.col-xs-3 Question
-    %td.col-xs-3 Next date to remind
-  %tbody
-    - @items.each do |item|
-      %tr.row
-        %td.col-xs-3= link_to item.question, item
-        %td.col-xs-3= item.reminder_date
+    .col-md-6.col-md-offset-1
+      .well{"ng-repeat" => "item in items", "ng-class" => "{red: need_reminding(item)}"}
+        %h3 {{ item.question }}
+        %p {{ item.answer }}
+        %p {{ item.reminder_date }}
+        .btn.btn-success{href: "", "ng-click" => "remember($index)", title: "Remember"} Remember
+        .btn.btn-warning{href: "", "ng-click" => "forget($index)", title: "Foreget"} Forget
+        .btn.btn-danger.pull-right{href: "", "ng-click" => "delete($index)", title: "Delete"} Delete

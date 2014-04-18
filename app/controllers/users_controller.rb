@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_filter :find_user, only: [:show, :edit, :update]
 
-  def index
-    @users = User.all
-  end
-
   def new
     @user = User.new
   end
@@ -21,7 +17,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @items = @user.items
   end
 
   def edit

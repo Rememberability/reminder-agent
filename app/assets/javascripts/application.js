@@ -15,5 +15,5 @@
 //= require angular
 //= require angular-resource
 //= require angular-ui-bootstrap-tpls
-//= require item_ctrl
+//= require user_ctrl
 //= require_tree .
