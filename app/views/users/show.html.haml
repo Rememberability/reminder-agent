@@ -12,9 +12,9 @@
 
     .col-md-6.col-md-offset-1
       .well{"ng-repeat" => "item in items", "ng-class" => "{red: need_reminding(item)}"}
-        %h3 {{ item.question }}
-        %p {{ item.answer }}
-        %p {{ item.reminder_date }}
-        .btn.btn-success{href: "", "ng-click" => "remember($index)", title: "Remember"} Remember
-        .btn.btn-warning{href: "", "ng-click" => "forget($index)", title: "Foreget"} Forget
-        .btn.btn-danger.pull-right{href: "", "ng-click" => "delete($index)", title: "Delete"} Delete
+        %h3{"ng-click" => "toggleShowAnswer($index)"} {{ item.question }}
+        %div{"ng-show" => "item.showAnswer"}
+          %p {{ item.answer }}
+          .btn.btn-success{href: "", "ng-click" => "remember($index)", title: "Remember"} I Remembered It
+          .btn.btn-warning{href: "", "ng-click" => "forget($index)", title: "Foreget"} I Forgot It
+          .btn.btn-danger.pull-right{href: "", "ng-click" => "delete($index)", title: "Delete"} Delete This Item

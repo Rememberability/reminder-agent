@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_filter :find_item, only: [:show, :remember, :forget, :edit, :destroy]
 
   def index
-    @items = current_user.items.order
+    @items = current_user.items.order(:reminder_date)
     render json:  @items
   end
 

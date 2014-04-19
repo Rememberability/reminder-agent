@@ -18,7 +18,15 @@ app.controller('UserCtrl', ["$scope", "Item", "$filter", function ($scope, Item,
 
   $scope.data = { "question": "", "answer": ""};
 
-  $scope.items = Item.query();
+  $scope.items = Item.query(function() {
+    for(item in $scope.items) {
+      item.showAnswer = false;
+    }
+  });
+
+  $scope.toggleShowAnswer = function(index) {
+    $scope.items[index].showAnswer = !$scope.items[index].showAnswer;
+  };
 
   $scope.create = function(question, answer) {
     Item.save({question: question, answer: answer}, function(item) {
