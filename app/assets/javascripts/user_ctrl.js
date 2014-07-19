@@ -1,9 +1,9 @@
 var app = angular.module('app', ['ngResource', 'ui.bootstrap']);
 
-app.config(function($httpProvider) {
+app.config(["$httpProvider", function($httpProvider) {
   var authToken = $("meta[name='csrf-token']").attr("content");
   return $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken;
-});
+}]);
 
 app.factory("Item", [ "$resource", function($resource) {
   return $resource("/items/:id", {id: "@id"},
