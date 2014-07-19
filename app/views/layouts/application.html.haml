@@ -21,12 +21,11 @@
           %ul.nav.navbar-nav.pull-right
             - if user_signed_in?
               %li
-                = link_to "Sign out", destroy_user_session_path, method: :delete
+                = link_to "Sign out", signout_path
             - else
               %li
-                = link_to "Sign In", new_user_session_path
-              %li
-                = link_to "Sign Up", new_user_registration_path
+                = link_to "Sign In with Twitter", signin_path
+
 
     .container
       - if notice

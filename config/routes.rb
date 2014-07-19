@@ -1,7 +1,6 @@
 ReminderAgent::Application.routes.draw do
   mount ItemsAPI => '/api'
 
-  devise_for :users
   root to: "home#index"
 
   resources :users
@@ -11,4 +10,9 @@ ReminderAgent::Application.routes.draw do
       put "forget"
     end
   end
+
+  get '/auth/:provider/callback' => 'sessions#create'
+  get '/signin' => 'sessions#new', :as => :signin
+  get '/signout' => 'sessions#destroy', :as => :signout
+  get '/auth/failure' => 'sessions#failure'
 end

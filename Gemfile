@@ -2,13 +2,14 @@ source "https://rubygems.org"
 
 gem "rails", "4.0.3"
 
+gem "omniauth"
+gem "omniauth-twitter"
 gem "activerecord-jdbcpostgresql-adapter"
 gem "therubyrhino"
 gem "torquebox", "3.0.2"
 gem "torquebox-server"
 gem "active_model_serializers"
 gem "aasm"
-gem "devise"
 gem "simple_form", github: "zlx/simple_form_bootstrap3"
 gem "state_machine"
 

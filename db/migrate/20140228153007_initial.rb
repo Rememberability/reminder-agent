@@ -11,9 +11,11 @@ class Initial < ActiveRecord::Migration
     end
 
     create_table :users do |t|
-      t.string :firstname
-      t.string :lastname
+      t.string :name
       t.date :last_reminded
+      t.string :provider
+      t.string :uid
+      t.string :email
 
       t.timestamps
     end
