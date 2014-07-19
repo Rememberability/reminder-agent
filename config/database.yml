@@ -20,7 +20,7 @@ test:
 production:
   adapter:  postgresql
   encoding: utf8
-  database: <%= ENV["DATABASE_NAME"] %>
-  username: <%= ENV["DB_USERNAME"]   %>
-  password: <%= ENV["DB_PASSWORD"]   %>
+  database: reminder_agent_production
+  username: reminder_agent
+  password: password
   pool :    20
