@@ -1,16 +1,47 @@
-%p.col-md-10.col-md-offset-2
+%p
   Use
   %a{href: "https://en.wikipedia.org/wiki/Spaced_repetition"} spaced repetition
-  to learn anything you want, using the
+  to memorize anything you want, using the
   %a{href: "https://en.wikipedia.org/wiki/Leitner_system"} Leitner
   system.
 
-%p.col-md-10.col-md-offset-2 Add a question and answer as an index card, and that index card will be will be brought to your attention at progressively larger intervals of time.  If you forget the answer at any time, the process restarts.
+%p Add a question and answer as an index card, and that index card will be will be brought to your attention at progressively larger intervals of time.  If you forget the answer at any time, the process restarts.
 
-%p.col-md-10.col-md-offset-2
-  This is project by
+%p We use Twitter for signing in and thats it.  We don't access any of your tweets or follower information.
+
+%p
+  This is a project by
   %a{href: "https://github.com/jteneycke"} Josh Teneycke
   and
   %a{href: "https://github.com/ravster/"} Ravi Desai
   using AngularJS, Rails and PostgreSQL.  The code for this project can be found on
   %a{href: "https://github.com/Rememberability/reminder-agent"} GitHub.
+
+%h1 How to use the system
+%ul
+  %li
+    %p When you first sign onto the system, you are faced with a simple form with "Question" and "Answer" fields
+    = image_tag "first_sign_on.png", alt: "first sign on"
+  %li
+    %p You can use the program in a "fill in the blanks" manner by starting the sentence in the "Question", and placing the rest of it in the "Answer", and so use it as a prompt.
+    = image_tag "enter_a_quote_to_memorize.png", alt: "enter a quote to memorize"
+  %li
+    %p And when you click "Submit", you'll see it saved on the right (Or the bottom if you are using this on a smaller screen)
+    = image_tag "first_index_card_is_saved.png", alt: "first index card is saved"
+  %li
+    %p Or you could use the program in a traditional index-cards way, with an actual question and answer
+    = image_tag "question_on_index_card.png", alt: "enter a question and an answer"
+  %li
+    %p And then the second index-card is saved
+    = image_tag "both_index_cards_saved.png", alt: "both index cards are saved"
+  %li
+    %p If you click on any of the index cards, it'll expand and show the answer.  It will also provide you with the option to delete that card.
+    = image_tag "expanded_index_card.png", alt: "expanded index card"
+  %li
+    %p Whenever you view this page in the future, if one or more of the index cards are due for a review, they will show up at the top of the list with a red background.  Try to remember the answer for this question
+    = image_tag "reminder_due_for_review.png", alt: "card due for review"
+  %li
+    %p When you click on the card, it'll expand and show you the answer.  If you got your answer correct, click "I Remembered It" and the card will be shown again to you after a longer period of time.  If you forgot, click "I Forgot It", and the card's reminder schedule will be reset so you are reminded more often.
+    = image_tag "reminder_due_for_review-expanded.png", alt: "expanded reminder due for review"
+  %li
+    %p And thats it.  Using this system of spaced repetition should help you memorize information over a long period of time.
