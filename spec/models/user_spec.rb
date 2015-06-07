@@ -1,8 +1,8 @@
-require "spec_helper"
+require "rails_helper"
 
 describe User do
   describe ".reminders_required" do
-    before :all do
+    before :each do
       @item_to_remind = Fabricate(:item)
       @item_to_not_remind = Fabricate(:item)
 

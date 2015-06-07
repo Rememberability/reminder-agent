@@ -3,7 +3,7 @@ ReminderAgent::Application.routes.draw do
 
   root to: "home#index"
 
-  resources :users
+  resources :users, only: %w[show]
   resources :items do
     member do
       put "remember"
